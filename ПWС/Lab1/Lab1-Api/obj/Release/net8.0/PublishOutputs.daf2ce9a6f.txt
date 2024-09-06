@@ -1,0 +1,11 @@
+C:\Users\nikit\OneDrive\Рабочий стол\лабы 4_1\ПWС\Lab1\Lab1-Api\obj\Release\net8.0\PubTmp\Out\Lab1.exe
+C:\Users\nikit\OneDrive\Рабочий стол\лабы 4_1\ПWС\Lab1\Lab1-Api\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Users\nikit\OneDrive\Рабочий стол\лабы 4_1\ПWС\Lab1\Lab1-Api\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Users\nikit\OneDrive\Рабочий стол\лабы 4_1\ПWС\Lab1\Lab1-Api\obj\Release\net8.0\PubTmp\Out\Lab1.dll
+C:\Users\nikit\OneDrive\Рабочий стол\лабы 4_1\ПWС\Lab1\Lab1-Api\obj\Release\net8.0\PubTmp\Out\Lab1.deps.json
+C:\Users\nikit\OneDrive\Рабочий стол\лабы 4_1\ПWС\Lab1\Lab1-Api\obj\Release\net8.0\PubTmp\Out\Lab1.runtimeconfig.json
+C:\Users\nikit\OneDrive\Рабочий стол\лабы 4_1\ПWС\Lab1\Lab1-Api\obj\Release\net8.0\PubTmp\Out\Lab1.pdb
+C:\Users\nikit\OneDrive\Рабочий стол\лабы 4_1\ПWС\Lab1\Lab1-Api\obj\Release\net8.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\nikit\OneDrive\Рабочий стол\лабы 4_1\ПWС\Lab1\Lab1-Api\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\nikit\OneDrive\Рабочий стол\лабы 4_1\ПWС\Lab1\Lab1-Api\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\nikit\OneDrive\Рабочий стол\лабы 4_1\ПWС\Lab1\Lab1-Api\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
