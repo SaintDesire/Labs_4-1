@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\nikit\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u043B\u0430\u0431\u044B 4_1\\\u041FW\u0421\\Lab1\\Lab1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A5200AFC-BEAD-4283-AF20-EF5AE1B9D874}|Lab1.csproj|c:\\users\\nikit\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u043B\u0430\u0431\u044B 4_1\\\u043Fw\u0441\\lab1\\lab1\\controllers\\myrestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5200AFC-BEAD-4283-AF20-EF5AE1B9D874}|Lab1.csproj|solutionrelative:controllers\\myrestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5200AFC-BEAD-4283-AF20-EF5AE1B9D874}|Lab1.csproj|c:\\users\\nikit\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u043B\u0430\u0431\u044B 4_1\\\u043Fw\u0441\\lab1\\lab1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5200AFC-BEAD-4283-AF20-EF5AE1B9D874}|Lab1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\nikit\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u043B\u0430\u0431\u044B 4_1\\\u041FW\u0421\\Lab1\\Lab1\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\nikit\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u043B\u0430\u0431\u044B 4_1\\\u041FW\u0421\\Lab1\\Lab1\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T09:02:09.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MyRestController.cs",
+              "DocumentMoniker": "C:\\Users\\nikit\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u043B\u0430\u0431\u044B 4_1\\\u041FW\u0421\\Lab1\\Lab1\\Controllers\\MyRestController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MyRestController.cs",
+              "ToolTip": "C:\\Users\\nikit\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u043B\u0430\u0431\u044B 4_1\\\u041FW\u0421\\Lab1\\Lab1\\Controllers\\MyRestController.cs",
+              "RelativeToolTip": "Controllers\\MyRestController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T08:45:56.63Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

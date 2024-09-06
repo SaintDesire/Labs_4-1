@@ -1,0 +1,54 @@
+[
+  {
+    "ContainingType": "MyRestService.Controllers.MyRestController",
+    "Method": "GetResult",
+    "RelativePath": "MyRest",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MyRestService.Controllers.MyRestController",
+    "Method": "PostResult",
+    "RelativePath": "MyRest",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "result",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MyRestService.Controllers.MyRestController",
+    "Method": "PushToStack",
+    "RelativePath": "MyRest",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "add",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MyRestService.Controllers.MyRestController",
+    "Method": "PopFromStack",
+    "RelativePath": "MyRest",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
