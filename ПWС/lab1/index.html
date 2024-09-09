@@ -1,0 +1,116 @@
+﻿﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+        }
+
+            .container > div {
+                align-self: center;
+            }
+
+        input,
+        button {
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="fetchGet()">Get</button>
+        <p id="get_result"></p>
+    </div>
+    <br />
+
+    <div class="container">
+        <input type="number" id="postAddValue" />
+        <button onclick="fetchPost()">Post</button>
+        <p id="post_result"></p>
+    </div>
+    <br />
+
+    <div class="container">
+        <input type="number" id="putAddValue" />
+        <button onclick="fetchPut()">Put</button>
+        <p id="put_result"></p>
+    </div>
+    <br />
+
+    <div class="container">
+        <p id="delete_result"></p>
+        <button onclick="fetchDelete()">Delete</button>
+    </div>
+    <br />
+
+</body>
+
+<script>
+    let url = "http://localhost:8892"
+    function getElement(id) {
+        return document.getElementById(id)
+    }
+
+    function setInnerHTML(element, value) {
+        element.innerHTML = value
+    }
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+
+    function fetchGet(event) {
+        fetch(url + "/lab", {
+            method: "GET",
+            headers: { 'Accept': 'application/json', 'Origin': url }
+        })
+            .then(res => res.json())
+            .then(res => {
+                let paragraph = getElement("get_result")
+                setInnerHTML(paragraph, res.result)
+            })
+    }
+
+    function fetchPost(event) {
+        let n = document.getElementById('postAddValue').value;
+        console.log(n);
+        fetch(url + "/lab?RESULT=" + n, {
+            method: "POST",
+            headers: {'Origin': url }
+        })
+    }
+
+    function fetchPut(event) {
+        let n = document.getElementById('putAddValue').value;
+        console.log(n);
+        fetch(url + "/lab?ADD=" + n, {
+            method: "PUT",
+            headers: { 'Origin': url }
+        })
+    }
+
+    function fetchDelete(event) {
+        fetch(url + "/lab", {
+            method: "DELETE",
+            headers: {'Origin': url }
+        })
+    }
+</script>
+</html>
