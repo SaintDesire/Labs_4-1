@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "qqwcRyZrTFTx84I5lfj/WVj09AaqD79BvJTAywvRhNQ=",
+  "Source": "Lab2",
+  "BasePath": "_content/Lab2",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Lab2\\wwwroot",
+      "Source": "Lab2",
+      "ContentRoot": "C:\\Users\\nikit\\labs_4-1\\ПWС\\lab2\\wwwroot\\",
+      "BasePath": "_content/Lab2",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\nikit\\labs_4-1\\ПWС\\lab2\\wwwroot\\index.html",
+      "SourceId": "Lab2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nikit\\labs_4-1\\ПWС\\lab2\\wwwroot\\",
+      "BasePath": "_content/Lab2",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ]
+}

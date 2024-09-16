@@ -11,8 +11,6 @@ namespace lab1
     {
         private static int result = 0;
 
-        #region Члены IHttpHandler
-
         public bool IsReusable => false;
 
         public void ProcessRequest(HttpContext context)
@@ -27,10 +25,7 @@ namespace lab1
             {
                 case "GET":
                     context.Response.ContentType = "application/json";
-                    if (stack.Count == 0)
-                        context.Response.Write("{\"result\": " + result + "}");
-                    else
-                        context.Response.Write("{\"result\": " + (result + stack.Peek()) + "}");
+                    context.Response.Write("{\"result\": " + (stack.Count == 0 ? result : result + stack.Peek()) + "}");
                     break;
                 case "POST":
                     result = Convert.ToInt32(context.Request.QueryString["result"]);
@@ -50,6 +45,5 @@ namespace lab1
             }
 
         }
-        #endregion
     }
 }

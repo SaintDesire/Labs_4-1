@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST Service Client</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+        }
+
+            .container > div {
+                align-self: center;
+            }
+
+        input,
+        button {
+            padding: 18px;
+            margin-right: 10px;
+        }
+
+        p {
+            align-self: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>REST Service Client</h1>
+
+    <div class="container">
+        <button id="getResult">Get RESULT</button>
+        <p id="result"></p>
+    </div>
+
+    <div class="container">
+        <input type="number" id="postValue" placeholder="Set RESULT" />
+        <button id="postResult">Set RESULT</button>
+        <p id="postResponse"></p>
+    </div>
+
+    <div class="container">
+        <input type="number" id="pushValue" placeholder="Push to Stack" />
+        <button id="pushToStack">Push to Stack</button>
+        <p id="pushResponse"></p>
+    </div>
+
+    <div class="container">
+        <button id="popFromStack">Pop from Stack</button>
+        <p id="popResponse"></p>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#getResult').click(function () {
+                $.get('/api/IIS', function (data) {
+                    $('#result').text("Current RESULT: " + data.result);
+                });
+            });
+
+            $('#postResult').click(function () {
+                const value = $('#postValue').val();
+                $.post('/api/IIS?RESULT=' + value, function (data) {
+                    $('#postResponse').text("New RESULT: " + data.result);
+                });
+            });
+
+            $('#pushToStack').click(function () {
+                const value = $('#pushValue').val();
+                $.ajax({
+                    url: '/api/IIS?ADD=' + value,
+                    type: 'PUT',
+                    success: function (data) {
+                        $('#pushResponse').text("Added to stack: " + data.add);
+                    }
+                });
+            });
+
+            $('#popFromStack').click(function () {
+                $.ajax({
+                    url: '/api/IIS',
+                    type: 'DELETE',
+                    success: function (data) {
+                        $('#popResponse').text("Popped from stack: " + data.pop);
+                    },
+                    error: function () {
+                        $('#popResponse').text("Stack is empty.");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

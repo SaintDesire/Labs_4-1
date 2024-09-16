@@ -30,11 +30,11 @@ struct NTP_packet
 	CHAR head[4];
 	DWORD32 RootDelay;
 	DWORD32 RootDispersion;
-	CHAR ReferenceIdentifier[4];
+	CHAR ReferenceIdentifier[4];			// идентификатор
 	DWORD32 RequestTimestamp[2];
-	DWORD32 ReferenceTimestamp[2];
+	DWORD32 ReferenceTimestamp[2];			// 32 бита  - секунды с 01.01.1900 00:00, 32 бита - доли секунды в 2^-32 единицах
 	DWORD32 OriginateTimestamp[2];
-	DWORD32 TransmitTimestamp[2];
+	DWORD32 TransmitTimestamp[2];			// 32 бита  - секунды с 01.01.1900 00:00, 32 бита - доли секунды в 2^-32 единицах
 	DWORD32 KeyIdentifier;
 	DWORD32 MessageDigest[4];
 };
@@ -46,10 +46,10 @@ DWORD64 GetLocalUnixTime()
 
 DWORD WINAPI SyncGlobalUnixTime(void* lpar)
 {
-	int h = CLOCKS_PER_SEC;	// clock-тиков в сек.
-	clock_t t = clock();	// тики со старта
-	int d = 613608 * 3600;	// 613608 * 3600 сек между 1.1.1900:00:00 и 1.1.1970:00:00
-	time_t ttime; time(&ttime); // количество сек с 1.1.1970:00:00
+	int h = CLOCKS_PER_SEC;			// clock-тиков в сек.
+	clock_t t = clock();			// тики со старта
+	int d = 613608 * 3600;			// 613608 * 3600 сек между 1.1.1900:00:00 и 1.1.1970:00:00
+	time_t ttime; time(&ttime);		// количество сек с 1.1.1970:00:00
 
 	WSAData wsaData;
 	SOCKET s;
@@ -80,25 +80,21 @@ DWORD WINAPI SyncGlobalUnixTime(void* lpar)
 			int lenout = 0, lenin = 0, lensockaddr = sizeof(server);
 			clock_t qtime = clock();
 
-
-
 			if ((lenout = sendto(s, (char*)&out_buf, sizeof(out_buf), NULL, (sockaddr*)&server, sizeof(server))) == SOCKET_ERROR)
 				throw  SetErrorMsgText("Send: ", WSAGetLastError());
 
 			if ((lenin = recvfrom(s, (char*)&in_buf, sizeof(in_buf), NULL, (sockaddr*)&server, &lensockaddr)) == SOCKET_ERROR)
 				throw SetErrorMsgText("Recieve: ", WSAGetLastError());
 
-
-
 			clock_t transmissionTime = clock() - qtime;
 			DWORD64 localUnixTime = GetLocalUnixTime();
 
 			in_buf.TransmitTimestamp[0] = ntohl(in_buf.TransmitTimestamp[0]) - d;
 			in_buf.OriginateTimestamp[0] = ntohl(in_buf.OriginateTimestamp[0]) - d;
-			in_buf.TransmitTimestamp[1] = ntohl(in_buf.TransmitTimestamp[1]);	// доли секунды 
+			in_buf.TransmitTimestamp[1] = ntohl(in_buf.TransmitTimestamp[1]);		// доли секунды 
 			in_buf.OriginateTimestamp[1] = ntohl(in_buf.OriginateTimestamp[1]);
 
-			//считаем время обработки запроса
+			// считаем время обработки запроса
 			tms = (DWORD64)((1000.0 * ((double)(in_buf.TransmitTimestamp[1]) / (double)0xffffffff)) + (DWORD64)in_buf.TransmitTimestamp[0] * 1000);	// ВРЕМЯ В МИЛИСЕКУНДАХ
 			oms = (DWORD64)((1000.0 * ((double)(in_buf.OriginateTimestamp[1]) / (double)0xffffffff)) + (DWORD64)in_buf.OriginateTimestamp[0] * 1000);	// ВРЕМЯ В МИЛМСЕКУНДАХ
 
@@ -183,7 +179,7 @@ int main()
 			EnterCriticalSection(&csServerTime);
 			int delta = clock() - lastSync;
 
-			//отправляем сразу корректировку - ВРЕМЯ С СЕРВЕРА + ВРЕМЯ, КОТОРОЕ ПРОШЛО С МОМЕНТА СИНХРОНИЗАЦИИ-время клиента
+			// ыотправляем сразу корректировку - ВРЕМЯ С СЕРВЕРА + ВРЕМЯ, КОТОРОЕ ПРОШЛО С МОМЕНТА СИНХРОНИЗАЦИИ-время клиента
 			ss.corrTime = ExTime.mTime + delta - gs.mTime;
 			LeaveCriticalSection(&csServerTime);
 

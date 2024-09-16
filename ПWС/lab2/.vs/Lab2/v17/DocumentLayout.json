@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{07B20C5E-B3A2-4A23-A005-A89C7A330C25}|Lab2.csproj|c:\\users\\nikit\\labs_4-1\\\u043Fw\u0441\\lab2\\controllers\\iiscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07B20C5E-B3A2-4A23-A005-A89C7A330C25}|Lab2.csproj|solutionrelative:controllers\\iiscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07B20C5E-B3A2-4A23-A005-A89C7A330C25}|Lab2.csproj|c:\\users\\nikit\\labs_4-1\\\u043Fw\u0441\\lab2\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{07B20C5E-B3A2-4A23-A005-A89C7A330C25}|Lab2.csproj|solutionrelative:wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07B20C5E-B3A2-4A23-A005-A89C7A330C25}|Lab2.csproj|c:\\users\\nikit\\labs_4-1\\\u043Fw\u0441\\lab2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07B20C5E-B3A2-4A23-A005-A89C7A330C25}|Lab2.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab2\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab2\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAowBIAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T05:28:17.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab2\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab2\\wwwroot\\index.html",
+              "RelativeToolTip": "wwwroot\\index.html",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAFMAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-09-12T05:30:35.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IISController.cs",
+              "DocumentMoniker": "C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab2\\Controllers\\IISController.cs",
+              "RelativeDocumentMoniker": "Controllers\\IISController.cs",
+              "ToolTip": "C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab2\\Controllers\\IISController.cs",
+              "RelativeToolTip": "Controllers\\IISController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBgAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T05:26:56.718Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

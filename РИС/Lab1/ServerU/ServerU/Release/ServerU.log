@@ -1,0 +1,10 @@
+﻿  stdafx.cpp
+  ServerU.cpp
+C:\Users\nikit\labs_4-1\РИС\Lab1\ServerU\ServerU\ServerU.cpp(158,12): warning C4996: 'inet_ntoa': Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  (компиляция исходного файла "/ServerU.cpp")
+  
+  Создание кода
+  Previous IPDB not found, fall back to full compilation.
+  All 115 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  ServerU.vcxproj -> C:\Users\nikit\labs_4-1\РИС\Lab1\ServerU\Release\ServerU.exe

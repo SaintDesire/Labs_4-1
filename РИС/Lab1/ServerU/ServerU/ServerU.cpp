@@ -1,5 +1,4 @@
-﻿
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "iostream"
 #include "string.h"
 #include "locale"
@@ -9,12 +8,9 @@
 
 using namespace std;
 
-
 string GetErrorMsgText(int code)
 {
 	string msgText;
-
-
 
 	switch (code)
 	{
@@ -82,8 +78,6 @@ string SetErrorMsgText(string msgText, int code)
 	return  msgText + GetErrorMsgText(code);
 };
 
-
-
 int setAverageCorrection(int averageCorrection[], int length)
 {
 	int value = 0;
@@ -99,7 +93,6 @@ struct SETSINCRO		///ответ С на синхр счетчика времен
 	int correction;		///знач, кот надо прибавить к знач счетчика t
 };
 
-
 int _tmain(int argc, _TCHAR* argv[])
 {
 	setlocale(LC_ALL, "Russian");
@@ -113,7 +106,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	SYSTEMTIME tm;
 
 	clock_t c;
-	int averageCorrection[10];
+	int averageCorrection[100];
 
 	cout << "Server Run" << endl;
 
@@ -142,7 +135,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 		int count = 1;
 
-		while (count != 11)
+		while (count <= 100)
 		{
 			SOCKADDR_IN client;
 			int lc = sizeof(client);
@@ -150,21 +143,20 @@ int _tmain(int argc, _TCHAR* argv[])
 			GetSystemTime(&tm);
 
 			recvfrom(sS, (char *)&getsincro, sizeof(getsincro), NULL, (sockaddr*)&client, &lc);
-			c = clock();
+			c = clock(); // пункт 9 
 			cout << c << "\n";
-			setsincro.correction = c - getsincro.correction;
-
+			setsincro.correction = c - getsincro.correction; //пункт 14
 
 			averageCorrection[count - 1] = setsincro.correction;
 			average = setAverageCorrection(averageCorrection, count);
 
-
+			// пункт 8
 			sendto(sS, (char *)&setsincro, sizeof(setsincro), 0, (sockaddr*)&client, sizeof(client));
 
-			cout << tm.wMonth << "." << tm.wDay << ".2020  -  " << tm.wHour + 3 << ":" << tm.wMinute << ":" << tm.wSecond << "." << tm.wMilliseconds << "\n";
+			// пункт 15
+			cout << tm.wMonth << "." << tm.wDay << "." << tm.wYear << "  -  " << tm.wHour + 3 << ":" << tm.wMinute << ":" << tm.wSecond << ":" << tm.wMilliseconds << "\n";
 			cout << inet_ntoa(client.sin_addr) << " Correction = " << setsincro.correction << ", Average Correction = " << average << "\n\n\n";
 			
-
 			count++;
 		}
 
@@ -177,7 +169,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		cout << endl << errorMsgText;
 	}
-
 
 	system("pause");
 	return 0;

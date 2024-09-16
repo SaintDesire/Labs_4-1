@@ -4,15 +4,15 @@
 #include <string>
 #include <ctime>
 #pragma comment(lib, "WS2_32.lib")
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
 
 using namespace std;
 
-struct GETSINCHRO	///запрос К на синхронизацию счетчика времени
+struct GETSINCHRO	// запрос Клиента на синхронизацию счетчика времени
 {
-	string cmd;		///всегда значение SINC
-	int curvalue;	///тек. значение счетчика времени
+	string cmd;		// всегда значение SINC
+	int curvalue;	// тек. значение счетчика времени
 };
-
 
 string GetErrorMsgText(int code)
 {
@@ -86,18 +86,21 @@ string SetErrorMsgText(string msgText, int code)
 int _tmain(int argc, _TCHAR* argv[])
 {
 	setlocale(LC_CTYPE, "Russian");
+	string IP;
+	cout << "Введите адрес сервера: ";
+	cin >> IP;
 
-	string IP = "127.0.0.1";	///"192.168.43.59";
-	int Tc = 2000;
-	///int Cc = 0;		///счетчик t на К (=> при первом запросе curvalue=0)
+	int Tc = 1000;
+	cout << "Введите задержку в Tc: ";
+	cin >> Tc;
+	///int Cc = 0;		///счетчик t на К (=> при первом запросе curvalue =0 )
 
 	SYSTEMTIME tm;
 	GETSINCHRO getsincro, setsincro;
 	ZeroMemory(&setsincro, sizeof(setsincro));
 	ZeroMemory(&getsincro, sizeof(getsincro));
 	getsincro.cmd = "SINC";
-	getsincro.curvalue = 0;
-
+	getsincro.curvalue = 0; //пункт 10
 
 	cout << "Client run" << endl;
 
@@ -121,7 +124,6 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	#pragma endregion
 
-
 		//curvalue = correction + 5 сек
 		//correction = clock() - curvalue
 
@@ -134,24 +136,26 @@ int _tmain(int argc, _TCHAR* argv[])
 		for (int i = 0; i < 10; i++)
 		{
 			GetSystemTime(&tm);
+			// пункт 6
 			sendto(cS, (char *)&getsincro, sizeof(getsincro), 0, (sockaddr*)&serv, sizeof(serv));
 			recvfrom(cS, (char *)&setsincro, sizeof(setsincro), 0, (sockaddr*)&serv, &lensockaddr);
 
 
 			maxcor = (maxcor < setsincro.curvalue) ? setsincro.curvalue : maxcor;
 			mincor = (mincor > setsincro.curvalue) ? setsincro.curvalue : mincor;
+
 			avgcorr += setsincro.curvalue;
 
-			cout << tm.wMonth << "." << tm.wDay << ".2020  -  " << tm.wHour + 3 << ":" << tm.wMinute << ":" << tm.wSecond << "." << tm.wMilliseconds << "\n";
-			cout << i + 1 << ") curvalue = " << getsincro.curvalue << " correction = " << setsincro.curvalue << " max corr/min corr: " << maxcor << "/" << mincor << "\n\n\n";
+			cout << tm.wMonth << "." << tm.wDay << "." << tm.wYear << "  -  " << tm.wHour + 3 << ":" << tm.wMinute << ":" << tm.wSecond << ":" << tm.wMilliseconds << "\n";
+			cout << i + 1 << ") curvalue = " << getsincro.curvalue << " | correction = " << setsincro.curvalue << " | max/min corr: " << maxcor << "/" << mincor << "\n\n\n";
 			
 			
 			if (i==0)
 				getsincro.curvalue += setsincro.curvalue;
 			else 
-				getsincro.curvalue += setsincro.curvalue + Tc;
+				getsincro.curvalue += setsincro.curvalue + Tc; //пункт 13
 			
-
+			// пункт 12
 			Sleep(Tc);
 		}
 

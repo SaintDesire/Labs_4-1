@@ -1,0 +1,11 @@
+C:\Users\nikit\labs_4-1\ПWС\lab23\obj\Release\net8.0\PubTmp\Out\Lab2.exe
+C:\Users\nikit\labs_4-1\ПWС\lab23\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Users\nikit\labs_4-1\ПWС\lab23\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Users\nikit\labs_4-1\ПWС\lab23\obj\Release\net8.0\PubTmp\Out\Lab2.dll
+C:\Users\nikit\labs_4-1\ПWС\lab23\obj\Release\net8.0\PubTmp\Out\Lab2.deps.json
+C:\Users\nikit\labs_4-1\ПWС\lab23\obj\Release\net8.0\PubTmp\Out\Lab2.runtimeconfig.json
+C:\Users\nikit\labs_4-1\ПWС\lab23\obj\Release\net8.0\PubTmp\Out\Lab2.pdb
+C:\Users\nikit\labs_4-1\ПWС\lab23\obj\Release\net8.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\nikit\labs_4-1\ПWС\lab23\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\nikit\labs_4-1\ПWС\lab23\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\nikit\labs_4-1\ПWС\lab23\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

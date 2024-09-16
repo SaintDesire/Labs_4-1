@@ -1,0 +1,54 @@
+[
+  {
+    "ContainingType": "RestServiceLab2.Controllers.IISController",
+    "Method": "GetResult",
+    "RelativePath": "api/IIS",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RestServiceLab2.Controllers.IISController",
+    "Method": "PostResult",
+    "RelativePath": "api/IIS",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RESULT",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RestServiceLab2.Controllers.IISController",
+    "Method": "PushToStack",
+    "RelativePath": "api/IIS",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ADD",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RestServiceLab2.Controllers.IISController",
+    "Method": "PopFromStack",
+    "RelativePath": "api/IIS",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

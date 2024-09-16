@@ -1,18 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\nikit\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lab1\\",
+  "WorkspaceRootPath": "C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{07FE069D-2325-4FDF-B2FE-99840C191306}|lab1.csproj|c:\\users\\nikit\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lab1\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{07FE069D-2325-4FDF-B2FE-99840C191306}|lab1.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{07FE069D-2325-4FDF-B2FE-99840C191306}|lab1.csproj|c:\\users\\nikit\\labs_4-1\\\u043Fw\u0441\\lab1\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{07FE069D-2325-4FDF-B2FE-99840C191306}|lab1.csproj|solutionrelative:index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07FE069D-2325-4FDF-B2FE-99840C191306}|lab1.csproj|c:\\users\\nikit\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lab1\\iishandler1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{07FE069D-2325-4FDF-B2FE-99840C191306}|lab1.csproj|C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab1\\iishandler1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{07FE069D-2325-4FDF-B2FE-99840C191306}|lab1.csproj|solutionrelative:iishandler1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07FE069D-2325-4FDF-B2FE-99840C191306}|lab1.csproj|c:\\users\\nikit\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lab1\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{07FE069D-2325-4FDF-B2FE-99840C191306}|lab1.csproj|solutionrelative:index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{07FE069D-2325-4FDF-B2FE-99840C191306}|lab1.csproj|C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab1\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{07FE069D-2325-4FDF-B2FE-99840C191306}|lab1.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07FE069D-2325-4FDF-B2FE-99840C191306}|lab1.csproj|c:\\users\\nikit\\labs_4-1\\\u043Fw\u0441\\lab1\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{07FE069D-2325-4FDF-B2FE-99840C191306}|lab1.csproj|solutionrelative:packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,30 +26,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "packages.config",
+              "DocumentMoniker": "C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab1\\packages.config",
+              "RelativeDocumentMoniker": "packages.config",
+              "ToolTip": "C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab1\\packages.config",
+              "RelativeToolTip": "packages.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-09-12T05:42:10.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\nikit\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lab1\\Web.config",
+              "DocumentMoniker": "C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab1\\Web.config",
               "RelativeDocumentMoniker": "Web.config",
-              "ToolTip": "C:\\Users\\nikit\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lab1\\Web.config",
+              "ToolTip": "C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab1\\Web.config",
               "RelativeToolTip": "Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2024-09-09T06:46:31.886Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\nikit\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lab1\\index.html",
+              "DocumentMoniker": "C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab1\\index.html",
               "RelativeDocumentMoniker": "index.html",
-              "ToolTip": "C:\\Users\\nikit\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lab1\\index.html",
+              "ToolTip": "C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab1\\index.html",
               "RelativeToolTip": "index.html",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAAAE8AAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGQAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2024-09-09T06:40:15.979Z",
               "EditorCaption": ""
@@ -54,11 +71,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "IISHandler1.cs",
-              "DocumentMoniker": "C:\\Users\\nikit\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lab1\\IISHandler1.cs",
+              "DocumentMoniker": "C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab1\\IISHandler1.cs",
               "RelativeDocumentMoniker": "IISHandler1.cs",
-              "ToolTip": "C:\\Users\\nikit\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\lab1\\IISHandler1.cs",
+              "ToolTip": "C:\\Users\\nikit\\labs_4-1\\\u041FW\u0421\\lab1\\IISHandler1.cs",
               "RelativeToolTip": "IISHandler1.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAYwBkAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-09T06:39:53.228Z",
               "EditorCaption": ""
