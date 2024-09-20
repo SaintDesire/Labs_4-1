@@ -87,16 +87,14 @@ int setAverageCorrection(int averageCorrection[], int length)
 	return value / length;
 }
 
-struct SETSINCRO		///ответ С на синхр счетчика времени
+struct SETSINCRO	
 {
-	string cmd;			///всегда значение SINCRO
-	int correction;		///знач, кот надо прибавить к знач счетчика t
+	string cmd;			
+	int correction;		
 };
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	setlocale(LC_ALL, "Russian");
-
 	SETSINCRO setsincro, getsincro;
 	ZeroMemory(&setsincro, sizeof(setsincro));
 	ZeroMemory(&getsincro, sizeof(getsincro));
@@ -143,17 +141,15 @@ int _tmain(int argc, _TCHAR* argv[])
 			GetSystemTime(&tm);
 
 			recvfrom(sS, (char *)&getsincro, sizeof(getsincro), NULL, (sockaddr*)&client, &lc);
-			c = clock(); // пункт 9 
+			c = clock(); 
 			cout << c << "\n";
-			setsincro.correction = c - getsincro.correction; //пункт 14
+			setsincro.correction = c - getsincro.correction; 
 
 			averageCorrection[count - 1] = setsincro.correction;
 			average = setAverageCorrection(averageCorrection, count);
 
-			// пункт 8
 			sendto(sS, (char *)&setsincro, sizeof(setsincro), 0, (sockaddr*)&client, sizeof(client));
 
-			// пункт 15
 			cout << tm.wMonth << "." << tm.wDay << "." << tm.wYear << "  -  " << tm.wHour + 3 << ":" << tm.wMinute << ":" << tm.wSecond << ":" << tm.wMilliseconds << "\n";
 			cout << inet_ntoa(client.sin_addr) << " Correction = " << setsincro.correction << ", Average Correction = " << average << "\n\n\n";
 			

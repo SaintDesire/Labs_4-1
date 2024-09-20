@@ -8,10 +8,10 @@
 
 using namespace std;
 
-struct GETSINCHRO	// запрос Клиента на синхронизацию счетчика времени
+struct GETSINCHRO
 {
-	string cmd;		// всегда значение SINC
-	int curvalue;	// тек. значение счетчика времени
+	string cmd;	
+	int curvalue;
 };
 
 string GetErrorMsgText(int code)
@@ -85,29 +85,25 @@ string SetErrorMsgText(string msgText, int code)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	setlocale(LC_CTYPE, "Russian");
 	string IP;
-	cout << "Введите адрес сервера: ";
+	cout << "Enter IP of local server: ";
 	cin >> IP;
 
 	int Tc = 1000;
-	cout << "Введите задержку в Tc: ";
+	cout << "Enter TC: ";
 	cin >> Tc;
-	///int Cc = 0;		///счетчик t на К (=> при первом запросе curvalue =0 )
 
 	SYSTEMTIME tm;
 	GETSINCHRO getsincro, setsincro;
 	ZeroMemory(&setsincro, sizeof(setsincro));
 	ZeroMemory(&getsincro, sizeof(getsincro));
 	getsincro.cmd = "SINC";
-	getsincro.curvalue = 0; //пункт 10
+	getsincro.curvalue = 0;
 
 	cout << "Client run" << endl;
 
 	try
 	{
-	#pragma region
-
 		SOCKET cS;
 		WSADATA wsaData;
 
@@ -122,10 +118,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		serv.sin_port = htons(2000);
 		serv.sin_addr.s_addr = inet_addr(IP.c_str());
 
-	#pragma endregion
 
-		//curvalue = correction + 5 сек
-		//correction = clock() - curvalue
 
 		int maxcor = 0;
 		int mincor = INT_MAX;
@@ -153,9 +146,8 @@ int _tmain(int argc, _TCHAR* argv[])
 			if (i==0)
 				getsincro.curvalue += setsincro.curvalue;
 			else 
-				getsincro.curvalue += setsincro.curvalue + Tc; //пункт 13
+				getsincro.curvalue += setsincro.curvalue + Tc;
 			
-			// пункт 12
 			Sleep(Tc);
 		}
 

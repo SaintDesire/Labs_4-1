@@ -179,7 +179,6 @@ int main()
 			EnterCriticalSection(&csServerTime);
 			int delta = clock() - lastSync;
 
-			// ыотправляем сразу корректировку - ВРЕМЯ С СЕРВЕРА + ВРЕМЯ, КОТОРОЕ ПРОШЛО С МОМЕНТА СИНХРОНИЗАЦИИ-время клиента
 			ss.corrTime = ExTime.mTime + delta - gs.mTime;
 			LeaveCriticalSection(&csServerTime);
 
