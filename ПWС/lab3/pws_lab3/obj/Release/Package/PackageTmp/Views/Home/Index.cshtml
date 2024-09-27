@@ -1,0 +1,563 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f5;
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .form-container, .add-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input[type="number"],
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus,
+        input[type="text"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.3);
+            cursor: pointer;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-section {
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            border: 1px solid #ccc;
+            background-color: #fafafa;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            min-height: 100px;
+            overflow-y: auto;
+            max-height: 400px;
+            box-sizing: border-box;
+        }
+        .pagination-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .pagination-button {
+            padding: 10px 15px;
+            border: 1px solid black;
+            border-radius: 4px;
+            color: black;
+            background-color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 5px;
+            width: 40px;
+        }
+
+        .pagination-button:hover, .pagination-button.active:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .pagination-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .pagination-button.active {
+            background-color: #007bff;
+            font-weight: bold;
+            cursor: default;
+            color: white;
+        }
+
+        .data-label {
+            width: 75px;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .data-value {
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div id="resourceInfo"></div><br>
+
+    <div class="form-container">
+        <label for="limit">Limit:</label>
+        <input type="number" id="limit" min="0" max="1000" value="5" />
+
+        <div class="form-section">
+            <label>Sort Order:</label>
+            <div class="radio-group">
+                ASC: <input name="sort" type="radio" value="asc" id="asc" checked />
+                DESC: <input name="sort" type="radio" value="desc" id="desc" />
+            </div>
+        </div>
+
+        <label for="offset">Offset:</label>
+        <input type="number" id="offset" min="0" max="1000" />
+
+        <label for="minid">Min Id:</label>
+        <input type="number" id="minid" min="0" max="1000" />
+
+        <label for="maxid">Max Id:</label>
+        <input type="number" id="maxid" min="0" max="1000" />
+
+        <label>Columns:</label>
+        <div class="checkbox-group">
+            Id: <input name="columnId" type="checkbox" value="id" id="id" />
+            Name: <input name="columnName" type="checkbox" value="name" id="nameC" />
+            Number: <input name="columnNumber" type="checkbox" value="number" id="numberC" />
+        </div>
+
+        <label for="like">Like:</label>
+        <input type="text" id="like" />
+
+        <label for="globallike">Global like:</label>
+        <input type="text" id="globallike" />
+
+        <div class="form-section">
+            <label>Format:</label>
+            <div class="radio-group">
+                JSON: <input name="format" type="radio" value="json" id="json" checked />
+                XML: <input name="format" type="radio" value="xml" id="xml" />
+            </div>
+        </div>
+
+        <input type="button" class="btn" onclick="getStudents()" value="GET" />
+    </div>
+
+    <div class="add-section">
+        <label for="name">Name:</label>
+        <input type="text" id="name" />
+
+        <label for="number">Number:</label>
+        <input type="text" id="number" />
+
+        <input type="button" class="btn" onclick="addStudent()" value="ADD" />
+    </div>
+
+    <div id="result2" class="result"></div>
+    <div id="result" class="result"></div>
+<script>
+    let limit = 5;
+    let page = 1;
+    let totalPages = 0;
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "/api/ResourceInfo",
+            type: "GET",
+            success: function (result) {
+                $("#resourceInfo").html(result);
+            },
+            error: function (error) {
+                console.error("Error fetching resource info:", error);
+            }
+        });
+    });
+
+    function getStudents() {
+        let data = {};
+        let format;
+
+        // Получаем значение сортировки
+        const eleSort = document.getElementsByName('sort');
+        for (let i = 0; i < eleSort.length; i++) {
+            if (eleSort[i].checked) {
+                data["sort"] = eleSort[i].value;
+            }
+        }
+
+        // Получаем лимит
+        if ($("#limit").val() !== "") {
+            data["limit"] = $("#limit").val();
+            this.limit = data["limit"];
+        } else {
+            data["limit"] = this.limit;
+        }
+
+        // Получаем offset
+        if ($("#offset").val() !== "") {
+            const of = $("#offset").val();
+            const offsetValue = parseInt(of, 10);
+            if (!isNaN(offsetValue)) {
+                data["offset"] = offsetValue;
+                console.log(offsetValue);
+            } else {
+                console.error("Offset is not a valid number:", of);
+            }
+        } else {
+            data["offset"] = 0;
+        }
+
+        // Получаем page
+        if (page == 0) {
+            data["page"] = 1;
+        } else {
+            data["page"] = page;
+        }
+
+        // Получаем minid и maxid
+        if ($("#minid").val() !== "") data["minid"] = $("#minid").val();
+        if ($("#maxid").val() !== "") data["maxid"] = $("#maxid").val();
+
+        // Проверка, что maxid не меньше minid
+        if (data["maxid"] < data["minid"]) {
+            $("#result2").html('Error: Max Id < Min Id');
+            return;
+        }
+
+        // Получаем выбранные колонки
+        data["columns"] = '';
+        const eleColumnsId = document.getElementsByName('columnId');
+        if (eleColumnsId[0].checked) data["columns"] += 'id,';
+        const eleColumnsName = document.getElementsByName('columnName');
+        if (eleColumnsName[0].checked) data["columns"] += 'name,';
+        const eleColumnsNumber = document.getElementsByName('columnNumber');
+        if (eleColumnsNumber[0].checked) data["columns"] += 'number';
+
+        // Получаем значения для like и globallike
+        if ($("#like").val() !== "") data["like"] = $("#like").val();
+        if ($("#globallike").val() !== "") data["globallike"] = $("#globallike").val();
+
+        // Получаем формат
+        const eleFormat = document.getElementsByName('format');
+        for (let i = 0; i < eleFormat.length; i++) {
+            if (eleFormat[i].checked) {
+                format = eleFormat[i].value;
+            }
+        }
+
+        $("#result").html(' ');
+
+        // Формируем URL API
+        const apiUrl = "/api/Students." + format;
+        $.ajax({
+            url: apiUrl,
+            data: data,
+            type: "GET",
+            contentType: format === "xml" ? "application/xml" : "application/json",
+            success: result => {
+                this.page = 0;
+
+                if (result.totalPages) {
+                    totalPages = result.totalPages;
+                }
+
+                if (format === "xml") {
+                    const students = result.querySelectorAll("ArrayOfStudentDto StudentDto");
+                    console.log("Number of students:", students.length);
+                    this.generateList(result);
+                } else {
+                    if (result.error) {
+                        $("#result2").html(result.error);
+                        return;
+                    }
+                    this.generateList(result.students.StudentDtos);
+                }
+            },
+            error: (error) => {
+                this.sendError(error, data["format"]);
+            }
+        });
+    }
+
+
+    // Функция для генерации списка студентов и кнопок страниц
+    function generateList(result) {
+        var htmlCode = "";
+        let format;
+
+        var ele = document.getElementsByName('format');
+        for (i = 0; i < ele.length; i++) {
+            if (ele[i].checked)
+                format = ele[i].value;
+        }
+
+        if (result.length == 0) {
+            htmlCode += "<p>not found</p>";
+        } else if (format == "json") {
+            result.forEach(el => {
+                let input = el.Links[1].Href;
+                var parts = input.split('/');
+                var id = parts[parts.length - 1];
+                htmlCode += "<p>";
+                if (el.Id) htmlCode += "Id: " + el.Id;
+                if (el.Name) htmlCode += "<p class='data-label'>Name:</p><span class='data-value'>" + el.Name + "</span><br/>";
+                if (el.Number) htmlCode += "<p class='data-label'>Number:</p><span class='data-value'>" + el.Number + "</span><br/>";
+                if (el.Name) htmlCode += "</br><p class='data-label'>Name:</p><input style=\"margin: 3px;\" type=\"text\" id=\"name" + id + "\" value=\"" + el.Name + "\"/>";
+                if (el.Number) htmlCode += "</br><p class='data-label'>Number:</p><input style=\"margin: 3px;\" type=\"text\" id=\"number" + id + "\" value=\"" + el.Number + "\"/>";
+
+
+                var myUri = input.replace(/\/(\d+)$/, "." + format + "/$1");
+
+                htmlCode += "</br>";
+                htmlCode += `
+    <div style="margin: 10px 0; padding: 10px; background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 5px;">
+        <button 
+            style="width: 100px; margin: 5px 10px 5px 0; padding: 8px 12px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;"
+            onclick="send('${myUri}', '${el.Links[0].Method}')">Get</button> 
+        <span>Method: ${el.Links[0].Method}, URI: ${myUri}</span>
+        </br>
+        <button 
+            style="width: 100px; margin: 5px 10px 5px 0; padding: 8px 12px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;"
+            onclick="send('${myUri}', '${el.Links[1].Method}')">Update</button> 
+        <span>Method: ${el.Links[1].Method}, URI: ${myUri}</span>
+        </br>
+        <button 
+            style="width: 100px; margin: 5px 10px 5px 0; padding: 8px 12px; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;"
+            onclick="send('${myUri}', '${el.Links[2].Method}')">Delete</button> 
+        <span>Method: ${el.Links[2].Method}, URI: ${myUri}</span>
+    </div>
+`;
+
+
+
+
+            });
+        }
+
+        // Генерация кнопок страниц
+        htmlCode += generatePaginationButtons();
+
+        $("#result").html(htmlCode);
+    }
+
+    // Функция для создания кнопок страниц
+    function generatePaginationButtons() {
+        var buttonsHtml = "<div class='pagination-container'>";
+
+        for (let i = 1; i <= totalPages; i++) {
+            const isActive = (i == page) ? 'active' : '';
+            buttonsHtml += `
+            <button class="pagination-button ${isActive}" onclick="goToPage(${i})">
+                ${i}
+            </button>
+        `;
+        }
+
+        buttonsHtml += "</div>";
+        return buttonsHtml;
+    }
+
+
+    // Переход на конкретную страницу
+    function goToPage(pageNumber) {
+        page = pageNumber;
+        getStudents();
+    }
+
+    function addStudent() {
+        let data = {};
+        let format;
+        if ($("#name").val() != "") data["name"] = $("#name").val();
+        var num = $("#number").val()
+        if (num != "") {
+            if (/\+375\d{2}\d{3}\d{2}\d{2}$/.test(num)) {
+                data["number"] = num;
+            }
+            else {
+                $("#result2").html('Error: Number is not correct');
+                return;
+            }
+        }
+
+        var ele = document.getElementsByName('format');
+        for (i = 0; i < ele.length; i++) {
+            if (ele[i].checked) format = ele[i].value;
+        }
+        var apiUrl = "/api/Students." + format;
+
+        $.ajax({
+            url: apiUrl,
+            data: JSON.stringify(data),
+            type: "POST",
+            contentType: format === "xml" ? "application/xml" : "application/json",
+            success: result => {
+                if (format == "xml") {
+                    var xmlText = new XMLSerializer().serializeToString(result);
+                    $("#result2").html(xmlText);
+                }
+                else {
+                    $("#result2").html(JSON.stringify(result));
+                }
+                getStudents();
+            },
+            error: (error) => {
+                this.sendError(error, data["format"]);
+            }
+        })
+    }
+
+    function send(href, method) {
+        let data = {};
+        let format;
+        console.log(href);
+        let input = href;
+        var parts = input.split('/');
+        var digit = parts[parts.length - 1];
+        console.log(digit)
+        data["id"] = digit;
+        var ele = document.getElementsByName('format');
+        for (i = 0; i < ele.length; i++) {
+            if (ele[i].checked)
+                format = ele[i].value;
+        }
+
+        data["columns"] = '';
+        ele = document.getElementsByName('columnId');
+        if (ele[0].checked) data["columns"] += 'id,';
+        ele = document.getElementsByName('columnName');
+        if (ele[0].checked) data["columns"] += 'name,';
+        ele = document.getElementsByName('columnNumber');
+        if (ele[0].checked) data["columns"] += 'number';
+
+        var columnsParam = encodeURIComponent(data["columns"]);
+
+        var fullUrl = href + '?' + 'columns=' + columnsParam;
+
+        if (method == 'PUT') {
+            if ($("#name" + digit)) data["name"] = $("#name" + digit).val();
+            if ($("#number" + digit)) data["number"] = $("#number" + digit).val();
+        }
+
+
+        $.ajax({
+            url: fullUrl,
+            data: JSON.stringify(data),
+            type: method,
+            contentType: format === "xml" ? "application/xml" : "application/json",
+            success: result => {
+                console.log(href);
+                console.log(result);
+                if (format == "xml") {
+
+                    var stringWriter = new XMLSerializer();
+                    var serializedXml = stringWriter.serializeToString(result);
+
+                    $("#result2").text(serializedXml);
+                }
+                else {
+                    $("#result2").html(JSON.stringify(result));
+                }
+                getStudents();
+            },
+            error: (error) => {
+                this.sendError(error, data["format"]);
+            }
+        })
+    }
+
+    function sendError(error, type) {
+        if (type == "xml") {
+            var obj = {};
+            $(error.responseXML).find("Error").each(function (el) {
+                obj.Code = $(this).find('Code').text();
+                obj.Link = {};
+                $(this).find('Link').each(function (e) {
+                    obj.Link.Href = $(this).find('Href').text();
+                    obj.Link.Method = $(this).find('Method').text();
+                    obj.Link.Message = $(this).find('Message').text();
+                });
+            });
+
+            var xmlText = new XMLSerializer().serializeToString(error.responseXML);
+            $("#result").html(xmlText);
+            $.ajax({
+                url: obj.Link.Href,
+                type: obj.Link.Method,
+                contentType: type === "xml" ? "application/xml" : "application/json",
+                success: result => {
+                    var xmlText = new XMLSerializer().serializeToString(result);
+                    $("#result2").html(xmlText);
+                },
+                error: (error) => {
+                    $("#result2").html(error.responseText);
+                }
+            })
+        }
+        else {
+            $("#result").html(error.responseText);
+            $.ajax({
+                url: error.responseJSON.Link.Href,
+                type: error.responseJSON.Link.Method,
+                contentType: type === "xml" ? "application/xml" : "application/json",
+                success: result => {
+                    $("#result2").html(JSON.stringify(result));
+                },
+                error: (error) => {
+                    $("#result2").html(error.responseText);
+                }
+            })
+
+        }
+    }
+
+</script>
+</body>
+</html>
