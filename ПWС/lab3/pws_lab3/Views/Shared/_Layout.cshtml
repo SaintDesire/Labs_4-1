@@ -3,11 +3,12 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - приложение ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
+        /* Основные стили */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f4f4;
@@ -15,26 +16,40 @@
             color: #333;
         }
 
+        /* Навигация */
         nav {
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #343a40;
+            padding: 25px
         }
 
         .navbar-brand {
             font-size: 1.5em;
             font-weight: bold;
+            color: #fff !important;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-toggler-icon {
+            color: white;
         }
 
         .nav-link {
+            color: rgba(255, 255, 255, 0.75) !important;
             margin-right: 15px;
             font-size: 1.1em;
             transition: color 0.3s;
         }
 
             .nav-link:hover {
-                color: #007bff;
+                color: #007bff !important;
                 text-decoration: underline;
             }
 
+        /* Контент */
         .container.body-content {
             margin-top: 20px;
             background-color: white;
@@ -43,12 +58,21 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
+        hr {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border: 0;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Футер */
         footer {
             text-align: center;
             padding: 20px 0;
-            margin-top: 20px;
+            margin-top: 40px;
             font-size: 0.9em;
             color: #777;
+            background-color: #f8f9fa;
         }
 
             footer p {
@@ -56,7 +80,7 @@
             }
     </style>
 </head>
-<body style="padding: 0px">
+<body style="padding: 0">
 
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
         <div class="container">
@@ -73,6 +97,7 @@
             </div>
         </div>
     </nav>
+
     <div class="container body-content">
         @RenderBody()
         <hr />

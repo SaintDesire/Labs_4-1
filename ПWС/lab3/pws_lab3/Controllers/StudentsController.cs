@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PWS_3.Models;
 using System;
@@ -10,6 +11,7 @@ using System.Net.Http;
 using System.Text;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Results;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -89,6 +91,18 @@ namespace PWS_3.Controllers
                 int totalStudents = context.Students.Count();
                 int totalPages = (int)Math.Ceiling(totalStudents / (double)limit);
 
+                // Создаем массив страниц
+                var pages = new List<object>();
+                for (int i = 1; i <= totalPages; i++)
+                {
+                    pages.Add(new
+                    {
+                        page = i,
+                        href = $"/api/Students.json?page={i}&limit={limit}",
+                        method = "GET"
+                    });
+                }
+
                 // Если запрашивается формат XML
                 if (format == "xml")
                 {
@@ -150,12 +164,13 @@ namespace PWS_3.Controllers
                     {
                         students = array,
                         currentPage = page,
-                        totalPages = totalPages
+                        totalPages = totalPages,
+                        pages // Добавляем массив страниц
                     });
                 }
                 else
                 {
-                    return Content(HttpStatusCode.BadRequest, new ErrorDto(501), Configuration.Formatters.JsonFormatter);
+                    return HandleError(501, "Неверный формат");
                 }
             }
             catch (Exception e)
@@ -180,12 +195,12 @@ namespace PWS_3.Controllers
                 }
                 else
                 {
-                    // Возвращаем ошибку формата
-                    return Content(HttpStatusCode.BadRequest, new ErrorDto(501), Configuration.Formatters.JsonFormatter);
+                    // Обрабатываем неверный формат
+                    return HandleError(501, "Неверный формат");
                 }
             }
-
         }
+
 
 
 
@@ -484,6 +499,56 @@ namespace PWS_3.Controllers
             var jsonInfo = JsonConvert.SerializeObject(resourceInfo);
 
             return jsonInfo;
+        }
+
+
+        // Метод для обработки ошибок внутри текущего контроллера
+        private IHttpActionResult HandleError(int statusCode, string message)
+        {
+            // В зависимости от типа запроса рендерим JSON или HTML страницу
+            if (Request.Content.Headers.ContentType?.MediaType == "application/json")
+            {
+                return Json(new { code = statusCode, message = message ?? "Ошибка сервера" });
+            }
+
+            var errorPage = $@"
+        <!DOCTYPE html>
+        <html lang='ru'>
+        <head>
+            <meta charset='UTF-8'>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+            <title>Ошибка {statusCode}</title>
+            <style>
+                body {{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    font-family: Arial, sans-serif;
+                    background-color: #f8f9fa;
+                    text-align: center;
+                }}
+                .error-message {{
+                    background: white;
+                    padding: 20px;
+                    border-radius: 5px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                }}
+            </style>
+        </head>
+        <body>
+            <div class='error-message'>
+                <h1>Ошибка {statusCode}</h1>
+                <p>{message ?? "Произошла ошибка"}</p>
+            </div>
+        </body>
+        </html>";
+
+            return new ResponseMessageResult(new HttpResponseMessage
+            {
+                Content = new StringContent(errorPage, System.Text.Encoding.UTF8, "text/html"),
+                StatusCode = (HttpStatusCode)statusCode
+            });
         }
     }
 }
