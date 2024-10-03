@@ -1,0 +1,281 @@
+import 'package:flutter/material.dart';
+
+import 'doctor_page.dart';
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 16.0, top: 8.0),
+          child: Container(
+            width: 20,
+            height: 20,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              image: DecorationImage(
+                image: AssetImage('assets/avatar.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              // Логика для открытия меню
+            },
+            child: Container(
+              width: 80,
+              height: 40,
+              child: Icon(Icons.more_vert, color: Colors.black), // Иконка меню с точками
+            ),
+          ),
+        ],
+      ),
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: ClipPath(
+              clipper: WaveClipper(),  // Используем кастомный Path для создания волны
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0xFFEEF1FF), // Цвет верхней части экрана
+                      Colors.white, // Переход к белому
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 80), // Большой отступ сверху для всех элементов начиная с "Hello, Jessica!"
+                  Text("Hello, \nJessika!", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  SizedBox(height: 16),
+                  SearchBar(),
+                  SizedBox(height: 16),
+                  StayHomeBanner(),
+                  SizedBox(height: 16),
+                  Text("What do you need?", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  SizedBox(height: 8),
+                  ServicesGrid(),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// Кастомный клиппер для создания волны
+class WaveClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0.0, size.height * 0.75);
+
+    var firstControlPoint = Offset(size.width / 4, size.height);
+    var firstEndPoint = Offset(size.width / 2, size.height * 0.75);
+
+    var secondControlPoint = Offset(3 * size.width / 4, size.height * 0.5);
+    var secondEndPoint = Offset(size.width, size.height * 0.75);
+
+    path.quadraticBezierTo(
+        firstControlPoint.dx, firstControlPoint.dy, firstEndPoint.dx, firstEndPoint.dy);
+
+    path.quadraticBezierTo(
+        secondControlPoint.dx, secondControlPoint.dy, secondEndPoint.dx, secondEndPoint.dy);
+
+    path.lineTo(size.width, 0.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}
+
+// Виджет для поиска с обновленными стилями
+class SearchBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      style: TextStyle(color: Colors.grey[400]), // Светло-серый цвет текста
+      decoration: InputDecoration(
+        hintText: "Search...",
+        hintStyle: TextStyle(color: Colors.grey[400]), // Светло-серый цвет текста в hint
+        prefixIcon: Icon(Icons.search, color: Colors.grey[400]), // Иконка светло-серая
+        border: InputBorder.none, // Убираем border
+        filled: true,
+        fillColor: Colors.grey[200], // Фоновый цвет
+      ),
+    );
+  }
+}
+
+// Виджет для баннера Stay Home
+class StayHomeBanner extends StatefulWidget {
+  @override
+  _StayHomeBannerState createState() => _StayHomeBannerState();
+}
+
+class _StayHomeBannerState extends State<StayHomeBanner> {
+  bool _isVisible = true; // Переменная для контроля видимости баннера
+
+  @override
+  Widget build(BuildContext context) {
+    return _isVisible
+        ? Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Container(
+          padding: EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Color(0xFF6A67CE),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: "Stay home! ",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                      TextSpan(
+                        text:
+                        "\nSchedule an e-visit and discuss the plan with a doctor.",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(width: 16),
+              Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/mask_girl.png"),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Positioned(
+          right: 2,
+          top: -15,
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                _isVisible = false; // Скрываем баннер при нажатии
+              });
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.orange,
+                shape: BoxShape.circle,
+              ),
+              child: Icon(Icons.close, color: Colors.white, size: 22),
+              padding: EdgeInsets.all(4),
+            ),
+          ),
+        ),
+      ],
+    )
+        : SizedBox.shrink(); // Возвращаем пустой виджет, когда баннер скрыт
+  }
+}
+
+
+// Сетка кнопок
+class ServicesGrid extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(
+      shrinkWrap: true,
+      crossAxisCount: 3, // 3 кнопки в одной строке
+      crossAxisSpacing: 12,
+      mainAxisSpacing: 12,
+      physics: NeverScrollableScrollPhysics(),
+      children: [
+        ServiceButton(icon: Icons.medical_services, label: "Diagnostic", isHighlighted: true),
+        ServiceButton(icon: Icons.local_hospital, label: "Shots", isHighlighted: false),
+        ServiceButton(icon: Icons.support_agent, label: "Consultation", isHighlighted: false),
+        ServiceButton(icon: Icons.local_hospital, label: "Ambulance", isHighlighted: false),
+        ServiceButton(icon: Icons.person, label: "Nurse", isHighlighted: true),
+        ServiceButton(icon: Icons.science, label: "Lab Work", isHighlighted: false),
+      ],
+    );
+  }
+}
+
+// Виджет для кнопок
+class ServiceButton extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final bool isHighlighted;
+
+  ServiceButton({required this.icon, required this.label, required this.isHighlighted});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => DoctorPage()), // Переход на DoctorPage
+        );
+      },
+      child: Card(
+        color: isHighlighted ? Colors.orange : Colors.white, // Оранжевый для выделенных кнопок
+        elevation: 2,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, size: 30, color: isHighlighted ? Colors.white : Colors.orange),
+              SizedBox(height: 8),
+              Text(
+                label,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: isHighlighted ? Colors.white : Colors.black,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

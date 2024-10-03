@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nikit\\labs_4-1\\КИС\\Lab1\\API\\API.csproj": {}
+    "C:\\Users\\nikit\\labs_4-1\\КИС\\Lab1\\API\\Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nikit\\labs_4-1\\КИС\\Lab1\\API\\API.csproj": {
+    "C:\\Users\\nikit\\labs_4-1\\КИС\\Lab1\\API\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nikit\\labs_4-1\\КИС\\Lab1\\API\\API.csproj",
-        "projectName": "API",
-        "projectPath": "C:\\Users\\nikit\\labs_4-1\\КИС\\Lab1\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\nikit\\labs_4-1\\КИС\\Lab1\\API\\Api.csproj",
+        "projectName": "Api",
+        "projectPath": "C:\\Users\\nikit\\labs_4-1\\КИС\\Lab1\\API\\Api.csproj",
         "packagesPath": "C:\\Users\\nikit\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\nikit\\labs_4-1\\КИС\\Lab1\\API\\obj\\",
         "projectStyle": "PackageReference",
@@ -46,9 +46,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Swashbuckle.AspNetCore": {
+            "Azure.Storage.Blobs": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[12.12.0, )"
             }
           },
           "imports": [

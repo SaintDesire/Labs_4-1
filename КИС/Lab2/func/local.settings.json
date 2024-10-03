@@ -1,0 +1,7 @@
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=funcstornikita;AccountKey=6Mr2BhdZ+hXvWqOZ9Zjgv8ykwWf8ibOleb3NodW9qCzNnWeEox5KGFqcMTI4EDrFrK2/oq7g8UtX+AStjU1ZHQ==;EndpointSuffix=core.windows.net",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"
+    }
+}
