@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // Импортируем Font Awesome
 
 import 'doctor_page.dart';
 
@@ -29,9 +30,12 @@ class HomePage extends StatelessWidget {
               // Логика для открытия меню
             },
             child: Container(
-              width: 80,
-              height: 40,
-              child: Icon(Icons.more_vert, color: Colors.black), // Иконка меню с точками
+              padding: const EdgeInsets.only(right: 20.0),
+              width: 60,
+              height: 60,
+              child: Image.asset(
+                'assets/four_dots_black.png', // Путь к изображению
+              ),
             ),
           ),
         ],
@@ -62,7 +66,20 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 80), // Большой отступ сверху для всех элементов начиная с "Hello, Jessica!"
-                  Text("Hello, \nJessika!", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  Row(
+                    children: [
+                      Text(
+                        "Hello, \nJessika!",
+                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(width: 15), // Отступ между текстом и иконкой
+                      Padding(
+                        padding: const EdgeInsets.only(top: 35.0), // Отступ сверху для иконки
+                        child: Icon(FontAwesomeIcons.capsules, size: 30, color: Colors.red), // Иконка после текста
+                      ),
+                    ],
+                  ),
+
                   SizedBox(height: 16),
                   SearchBar(),
                   SizedBox(height: 16),
@@ -80,6 +97,7 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
 
 // Кастомный клиппер для создания волны
 class WaveClipper extends CustomClipper<Path> {
@@ -214,7 +232,6 @@ class _StayHomeBannerState extends State<StayHomeBanner> {
   }
 }
 
-
 // Сетка кнопок
 class ServicesGrid extends StatelessWidget {
   @override
@@ -226,12 +243,12 @@ class ServicesGrid extends StatelessWidget {
       mainAxisSpacing: 12,
       physics: NeverScrollableScrollPhysics(),
       children: [
-        ServiceButton(icon: Icons.medical_services, label: "Diagnostic", isHighlighted: true),
-        ServiceButton(icon: Icons.local_hospital, label: "Shots", isHighlighted: false),
-        ServiceButton(icon: Icons.support_agent, label: "Consultation", isHighlighted: false),
-        ServiceButton(icon: Icons.local_hospital, label: "Ambulance", isHighlighted: false),
-        ServiceButton(icon: Icons.person, label: "Nurse", isHighlighted: true),
-        ServiceButton(icon: Icons.science, label: "Lab Work", isHighlighted: false),
+        ServiceButton(icon: FontAwesomeIcons.stethoscope, label: "Diagnostic", isHighlighted: true),
+        ServiceButton(icon: FontAwesomeIcons.syringe, label: "Shots", isHighlighted: false),
+        ServiceButton(icon: FontAwesomeIcons.phone, label: "Consultation", isHighlighted: false),
+        ServiceButton(icon: FontAwesomeIcons.ambulance, label: "Ambulance", isHighlighted: false),
+        ServiceButton(icon: FontAwesomeIcons.userNurse, label: "Nurse", isHighlighted: true),
+        ServiceButton(icon: FontAwesomeIcons.vial, label: "Lab Work", isHighlighted: false),
       ],
     );
   }
