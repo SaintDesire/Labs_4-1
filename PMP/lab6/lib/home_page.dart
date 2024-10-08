@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // Импортируем Font Awesome
+import 'package:lab4_5/main.dart';
 
 import 'doctor_page.dart';
 
@@ -25,6 +26,14 @@ class HomePage extends StatelessWidget {
         ),
         actions: [
           GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => IpAddressScreen(),
+                ),
+              );
+            },
             child: Container(
               padding: const EdgeInsets.only(right: 20.0),
               width: 60,
@@ -34,6 +43,24 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MessageScreen(),
+                ),
+              );
+            },
+            child: Container(
+              padding: const EdgeInsets.only(right: 20.0),
+              width: 60,
+              height: 60,
+              child: Image.asset(
+                'assets/four_dots_black.png',
+              ),
+            ),
+          )
         ],
       ),
       body: Stack(
@@ -233,7 +260,9 @@ class ServiceButton extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DoctorPage()), // Переход на DoctorPage
+          MaterialPageRoute(
+            builder: (context) => DoctorPage(data: 'Pressed ' + label + ' button'),
+          ),
         );
       },
       child: Card(

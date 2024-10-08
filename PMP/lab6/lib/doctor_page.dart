@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'home_page.dart';
 
 class DoctorPage extends StatelessWidget {
+  final String data;
+
+  DoctorPage({required this.data});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,10 +28,7 @@ class DoctorPage extends StatelessWidget {
                       // Стрелка назад с отступами
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => HomePage()),
-                          );
+                          Navigator.pop(context);
                         },
                         child: Container(
                           width: 40,
@@ -46,7 +46,7 @@ class DoctorPage extends StatelessWidget {
                           width: 40,
                           height: 40,
                           child: Image.asset(
-                              'assets/four_dots_white.png', // Путь к изображению
+                            'assets/four_dots_white.png', // Путь к изображению
                           ),
                         ),
                       ),
@@ -54,8 +54,8 @@ class DoctorPage extends StatelessWidget {
                   ),
                 ),
               ),
-              // Заголовок "Top doctors" с большим отступом сверху
               SizedBox(height: 100),
+              Text(data, style: TextStyle(fontSize: 20, color: Colors.white)),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
@@ -113,7 +113,35 @@ class DoctorPage extends StatelessWidget {
                       SizedBox(height: 16), // Отступ перед кнопками категорий
                       Categories(), // Кнопки категорий
                       SizedBox(height: 16),
-                      Expanded(child: DoctorList()), // Список врачей
+                      // Используем PageView для горизонтального листания докторов
+                      Container(
+                        height: 150,
+                        child: PageView(
+                          children: [
+                            DoctorCard(
+                                name: "Dr. Jaison",
+                                specialty: "Pulmonologist",
+                                rating: 5.0,
+                                time: "10:00 AM - 3:00 PM",
+                                avatar: "assets/doctor1_avatar.png"
+                            ),
+                            DoctorCard(
+                                name: "Dr. Wilson",
+                                specialty: "General Pulmonologist",
+                                rating: 4.5,
+                                time: "10:00 AM - 2:00 PM",
+                                avatar: "assets/doctor2_avatar.png"
+                            ),
+                            DoctorCard(
+                                name: "Dr. Adams",
+                                specialty: "Pulmonologist",
+                                rating: 4.5,
+                                time: "11:00 AM - 4:00 PM",
+                                avatar: "assets/doctor3_avatar.png"
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -125,6 +153,7 @@ class DoctorPage extends StatelessWidget {
     );
   }
 }
+
 // Кнопки категорий
 class Categories extends StatelessWidget {
   @override
@@ -177,39 +206,6 @@ class CategoryIcon extends StatelessWidget {
   }
 }
 
-
-// Список врачей
-// Список врачей
-class DoctorList extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        DoctorCard(
-            name: "Dr. Jaison",
-            specialty: "Pulmonologist",
-            rating: 5.0,
-            time: "10:00 AM - 3:00 PM",
-            avatar: "assets/doctor1_avatar.png"
-        ),
-        DoctorCard(
-            name: "Dr. Wilson",
-            specialty: "General Pulmonologist",
-            rating: 4.5,
-            time: "10:00 AM - 2:00 PM",
-            avatar: "assets/doctor2_avatar.png"
-        ),
-        DoctorCard(
-            name: "Dr. Adams",
-            specialty: "Pulmonologist",
-            rating: 4.5,
-            time: "11:00 AM - 4:00 PM",
-            avatar: "assets/doctor3_avatar.png"
-        ),
-      ],
-    );
-  }
-}
 // Карточка врача
 class DoctorCard extends StatelessWidget {
   final String name;
@@ -240,7 +236,6 @@ class DoctorCard extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
-            // Используем изображение вместо иконки
             Container(
               width: 80,
               height: 80,

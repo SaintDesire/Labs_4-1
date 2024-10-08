@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\inetpub\wwwroot\lab3</_PublishTargetUrl>
-    <History>True|2024-09-30T05:50:30.9716340Z||;True|2024-09-27T09:46:18.0148496+03:00||;True|2024-09-26T12:13:51.7313216+03:00||;</History>
+    <History>True|2024-10-07T05:06:18.9874540Z||;True|2024-09-30T08:50:30.9716340+03:00||;True|2024-09-27T09:46:18.0148496+03:00||;True|2024-09-26T12:13:51.7313216+03:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -184,10 +184,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/24/2024 23:00:56</publishTime>
     </File>
     <File Include="bin/pws_lab3.dll">
-      <publishTime>09/30/2024 08:50:29</publishTime>
+      <publishTime>10/07/2024 08:15:12</publishTime>
     </File>
     <File Include="bin/pws_lab3.pdb">
-      <publishTime>09/30/2024 08:50:29</publishTime>
+      <publishTime>10/07/2024 08:15:12</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>09/24/2024 23:00:56</publishTime>
@@ -586,7 +586,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/24/2024 23:00:56</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>09/27/2024 10:22:16</publishTime>
+      <publishTime>10/07/2024 08:14:36</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>09/24/2024 23:00:56</publishTime>

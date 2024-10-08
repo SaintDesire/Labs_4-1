@@ -272,13 +272,6 @@
             if ($("#like").val() !== "") data["like"] = $("#like").val();
             if ($("#globallike").val() !== "") data["globallike"] = $("#globallike").val();
 
-            // Получаем лимит
-            if ($("#limit").val() !== "") {
-                data["limit"] = $("#limit").val();
-                this.limit = data["limit"];
-            } else {
-                data["limit"] = this.limit;
-            }
 
             // Получаем формат
             const eleFormat = document.getElementsByName('format');
@@ -298,30 +291,17 @@
                     data["page"] = page;
                 }
 
+                // Получаем лимит
+                if ($("#limit").val() !== "") {
+                    data["limit"] = $("#limit").val();
+                    this.limit = data["limit"];
+                } else {
+                    data["limit"] = this.limit;
+                }
 
                 apiUrl = "/api/Students." + format;
             } else {
-                const urlParts = href.split("?");
-                if (urlParts.length > 1) {
-                    const baseUrl = urlParts[0];
-                    const queryParams = urlParts[1];
-
-                    // Разделяем параметры запроса
-                    const params = queryParams.split("&");
-
-                    // Фильтруем параметры, оставляя только те, которые не содержат "limit"
-                    const filteredParams = params.filter(param => !param.includes("limit"));
-
-                    // Формируем новую строку параметров
-                    const newQueryParams = filteredParams.join("&");
-
-                    // Формируем новый URL без параметра "limit"
-                    const newUrl = baseUrl + (newQueryParams ? `?${newQueryParams}` : "");
-
-                    apiUrl = newUrl
-                } else {
-                    apiUrl = href
-                }
+                apiUrl = href
             }
 
 
@@ -429,7 +409,6 @@
         // Pереход на конкретную страницу
         function goToPage(pageInfo, pageNumber) {
             page = pageNumber;
-            console.log()
             getStudents(pageInfo);
         }
 
