@@ -7,7 +7,7 @@ const { dbService } = require('./DBService.js');
 class ReplicateService {
   constructor(url) {
     this.correction = 0;
-    this.mainServerAddress = url ?? 'http://192.168.43.100:3001';
+    this.mainServerAddress = url ?? 'http://192.168.171.27:3001';
   }
 
   fetchCentralBODIasync = async () => {
@@ -18,10 +18,11 @@ class ReplicateService {
 
       if (response.status !== 200) {
         throw new Error(
-          `TimeService | syncTime | ERROR : status ${response.status} `
+          `ReplicateService | fetchCentralBODIasync | ERROR : status ${response.status} `
         );
       }
       const newData = response.data;
+      console.log(newData)
       /*
       Добавить запись о полученныз данных в BODK
       */

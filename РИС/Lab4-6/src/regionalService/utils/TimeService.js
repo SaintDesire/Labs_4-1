@@ -3,7 +3,7 @@ const axios = require('axios');
 class TimeService {
   constructor(url) {
     this.correction = 0;
-    this.mainServerAddress = url ?? 'http://192.168.43.100:3001';
+    this.mainServerAddress = url ?? 'http://192.168.171.27:3001';
   }
 
   syncTime = async () => {

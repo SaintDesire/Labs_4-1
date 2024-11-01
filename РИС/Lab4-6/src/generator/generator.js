@@ -4,7 +4,7 @@ const SUB = [
   {
     db: new Database(
       '127.0.0.1',
-      'sa',
+      'student',
       '1111',
       'TerritorialDatabase1'
     ),
@@ -14,7 +14,7 @@ const SUB = [
   {
     db: new Database(
       '127.0.0.1',
-      'sa',
+      'student',
       '1111',
       'TerritorialDatabase2'
     ),
@@ -24,7 +24,7 @@ const SUB = [
   {
     db: new Database(
       '127.0.0.1',
-      'sa',
+      'student',
       '1111',
       'TerritorialDatabase3'
     ),
