@@ -1,5 +1,6 @@
 ﻿select * from BODI;
 select * from BODK;
+
 truncate table BODI;
 truncate table BODK;
 

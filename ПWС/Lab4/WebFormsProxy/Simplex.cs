@@ -37,7 +37,7 @@ public partial class Simplex : System.Web.Services.Protocols.SoapHttpClientProto
     
     /// <remarks/>
     public Simplex() {
-        this.Url = "https://localhost:44380/Simplex.asmx";
+        this.Url = "https://localhost:6543/Simplex.asmx";
     }
     
     /// <remarks/>

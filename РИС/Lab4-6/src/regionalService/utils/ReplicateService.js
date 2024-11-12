@@ -7,7 +7,7 @@ const { dbService } = require('./DBService.js');
 class ReplicateService {
   constructor(url) {
     this.correction = 0;
-    this.mainServerAddress = url ?? 'http://192.168.171.27:3001';
+    this.mainServerAddress = url ?? 'http://192.168.82.27:3001';
   }
 
   fetchCentralBODIasync = async () => {

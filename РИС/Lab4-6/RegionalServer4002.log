@@ -3,7 +3,6 @@
 {"level":"info","message":"fetchCentralBODIasync | OK"}
 {"level":"info","message":"fetchCentralBODIasync | OK"}
 {"level":"info","message":"fetchCentralBODIasync | OK"}
-{"level":"info","message":"Региональный сервис запущен на порту: 4002"}
 {"level":"info","message":"fetchCentralBODIasync | OK"}
 {"level":"info","message":"fetchCentralBODIasync | OK"}
 {"level":"info","message":"fetchCentralBODIasync | OK"}
@@ -234,6 +233,7 @@
 {"level":"info","message":"fetchCentralBODIasync | OK"}
 {"level":"info","message":"fetchCentralBODIasync | OK"}
 {"level":"info","message":"fetchCentralBODIasync | OK"}
+{"level":"error","message":"read ECONNRESET"}
 {"level":"info","message":"fetchCentralBODIasync | OK"}
 {"level":"info","message":"fetchCentralBODIasync | OK"}
 {"level":"info","message":"fetchCentralBODIasync | OK"}
@@ -308,18 +308,9 @@
 {"level":"info","message":"fetchCentralBODIasync | OK"}
 {"level":"info","message":"fetchCentralBODIasync | OK"}
 {"level":"info","message":"fetchCentralBODIasync | OK"}
-{"level":"error","message":"connect ECONNREFUSED 192.168.171.27:3001"}
-{"level":"error","message":"connect ECONNREFUSED 192.168.171.27:3001"}
-{"level":"error","message":"connect ECONNREFUSED 192.168.171.27:3001"}
-{"level":"error","message":"connect ECONNREFUSED 192.168.171.27:3001"}
-{"level":"error","message":"connect ECONNREFUSED 192.168.171.27:3001"}
-{"level":"error","message":"connect ECONNREFUSED 192.168.171.27:3001"}
-{"level":"error","message":"connect ECONNREFUSED 192.168.171.27:3001"}
-{"level":"error","message":"connect ECONNREFUSED 192.168.171.27:3001"}
-{"level":"error","message":"connect ECONNREFUSED 192.168.171.27:3001"}
-{"level":"error","message":"connect ECONNREFUSED 192.168.171.27:3001"}
-{"level":"error","message":"connect ECONNREFUSED 192.168.171.27:3001"}
-{"level":"error","message":"connect ECONNREFUSED 192.168.171.27:3001"}
+{"level":"info","message":"fetchCentralBODIasync | OK"}
+{"level":"info","message":"fetchCentralBODIasync | OK"}
+{"level":"info","message":"fetchCentralBODIasync | OK"}
 {"level":"info","message":"fetchCentralBODIasync | OK"}
 {"level":"info","message":"fetchCentralBODIasync | OK"}
 {"level":"info","message":"fetchCentralBODIasync | OK"}
