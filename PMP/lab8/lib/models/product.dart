@@ -1,25 +1,33 @@
 import 'package:hive/hive.dart';
 
-part 'product.g.dart'; // Директива для генерации файла адаптера
+part 'product.g.dart'; // Путь к файлу, который будет сгенерирован
 
-@HiveType(typeId: 2) // Уникальный идентификатор типа
-class Product extends HiveObject {
+@HiveType(typeId: 2) // Уникальный идентификатор типа данных в Hive
+class Product {
   @HiveField(0)
-  String id;
+  final String id;
 
   @HiveField(1)
-  String name;
+  final String name;
 
   @HiveField(2)
-  String description;
+  final String description;
 
   @HiveField(3)
-  double price;
+  final double price;
+
+  @HiveField(4)
+  final String? imageUrl;
+
+  @HiveField(5)
+  final List<String> directions; // Список шагов приготовления
 
   Product({
     required this.id,
     required this.name,
     required this.description,
     required this.price,
+    this.imageUrl,
+    required this.directions,
   });
 }

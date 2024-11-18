@@ -9,12 +9,16 @@ import 'user_list_screen.dart'; // Импорт экрана списка пол
 import 'login_screen.dart'; // Импорт экрана логина
 
 class HomeScreen extends StatefulWidget {
+  final String userRole; // Роль пользователя, переданная в конструктор
+
+  // Конструктор для приема роли пользователя
+  HomeScreen({required this.userRole});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late User? currentUser = null;
   late Box<Product> productBox;
   late Box<Favourite> favoriteBox;
 
@@ -23,14 +27,6 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     productBox = Hive.box<Product>('productBox');
     favoriteBox = Hive.box<Favourite>('favouriteBox');
-    currentUser = Hive.box('currentUserBox').get('currentUser');
-    updateCurrentUser();
-  }
-
-  void updateCurrentUser() {
-    setState(() {
-      currentUser = Hive.box('currentUserBox').get('currentUser');
-    });
   }
 
   bool isFavorite(String productId) {
@@ -68,57 +64,77 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Flexible(
-                    child: Text(
-                      'Role: ${currentUser?.role ?? 'No role'}',
-                      style: TextStyle(fontSize: 18),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      IconButton(
-                        icon: Icon(Icons.menu), // Используйте подходящую иконку
-                        color: Colors.grey,
-                        onPressed: () {
-                          if (currentUser != null && (currentUser!.role == 'admin' || currentUser!.role == 'manager')) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ManageProductsScreen(),
-                              ),
-                            );
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text('Access denied: You do not have permission to manage products.'),
-                              ),
-                            );
-                          }
-                        },
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.login),
-                        color: Colors.grey,
-                        onPressed: () {
-                          // Переход на экран логина
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginScreen(),
-                            ),
-                          );
-                        },
-                      ),
-                      Icon(Icons.search, size: 28, color: Colors.black54),
-                      SizedBox(width: 16),
-
-                    ],
-                  ),
                 ],
               ),
-              SizedBox(height: 30),
-              // Список продуктов
+              SizedBox(height: 20), // Добавляем отступ перед ролью
+              Text(
+                'Role: ${widget.userRole}', // Отображение роли пользователя
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 20), // Отступ между ролью и кнопками
+              // Первая кнопка - Переход на страницу авторизации
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()), // Экран авторизации
+                  );
+                },
+                child: Text('Go to Login'),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0), backgroundColor: Colors.green,
+                  textStyle: TextStyle(fontSize: 18), // Цвет кнопки
+                ),
+              ),
+              SizedBox(height: 10), // Отступ между кнопками
+              // Вторая кнопка - Переход на страницу управления продуктами
+              ElevatedButton(
+                onPressed: () {
+                  if (widget.userRole == 'manager' || widget.userRole == 'admin') {
+                    // Если роль manager или admin, переходим на экран управления продуктами
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ManageProductsScreen(),
+                      ),
+                    ).then((shouldUpdate) {
+                      // Если возвращаемся и signal - true, обновляем данные
+                      if (shouldUpdate == true) {
+                        setState(() {});
+                      }
+                    });
+                  } else {
+                    // Если роль user, выводим ошибку
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('Error'),
+                          content: Text('You do not have permission to manage products.'),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop(); // Закрыть диалог
+                              },
+                              child: Text('OK'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
+                },
+                child: Text('Manage Products'),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
+                  backgroundColor: Colors.yellow,
+                  textStyle: TextStyle(fontSize: 18), // Цвет кнопки
+                ),
+              ),
+              SizedBox(height: 20), // Отступ между кнопками и списком продуктов
               Expanded(
                 child: ListView.builder(
                   itemCount: productBox.length,
@@ -155,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ProductDetailPage(),
+                              builder: (context) => ProductDetailPage(product: product),
                             ),
                           );
                         },
@@ -163,16 +179,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   },
                 ),
-              ),
-              // Кнопки над нижним меню
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  _buildButton(Icons.tune, 'Beer', false),
-                  _buildButton(Icons.fastfood, 'Foods', true),
-                  _buildButton(Icons.wine_bar, 'Wine', false),
-                ],
               ),
             ],
           ),
@@ -211,25 +217,6 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }
         },
-      ),
-    );
-  }
-
-  Widget _buildButton(IconData icon, String label, bool isSelected) {
-    return GestureDetector(
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        decoration: BoxDecoration(
-          color: isSelected ? Color(0xFFE67E22) : Color(0xFFE8E8E8),
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Text(
-          label,
-          style: TextStyle(
-            color: isSelected ? Colors.white : Colors.grey,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
       ),
     );
   }

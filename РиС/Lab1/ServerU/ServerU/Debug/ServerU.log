@@ -1,0 +1,7 @@
+﻿  stdafx.cpp
+  ServerU.cpp
+C:\Users\nikit\labs_4-1\РИС\Lab1\ServerU\ServerU\ServerU.cpp(158,12): warning C4996: 'inet_ntoa': Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  (компиляция исходного файла "/ServerU.cpp")
+  
+  LINK : не найден или не выполнена сборка C:\Users\nikit\labs_4-1\РИС\Lab1\ServerU\Debug\ServerU.exe при последней инкрементной компоновке; выполняется полная компоновка
+  ServerU.vcxproj -> C:\Users\nikit\labs_4-1\РИС\Lab1\ServerU\Debug\ServerU.exe

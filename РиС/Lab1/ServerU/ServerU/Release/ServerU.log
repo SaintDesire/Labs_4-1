@@ -1,0 +1,10 @@
+﻿  ServerU.cpp
+C:\Users\nikit\labs_4-1\РИС\Lab1\ServerU\ServerU\ServerU.cpp(158,12): warning C4996: 'inet_ntoa': Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  (компиляция исходного файла "/ServerU.cpp")
+  
+  Создание кода
+  0 of 115 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  ServerU.vcxproj -> C:\Users\nikit\labs_4-1\РИС\Lab1\ServerU\Release\ServerU.exe

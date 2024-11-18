@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import '../models/product.dart'; // Подключаем модель продукта
 
 class ProductDetailPage extends StatelessWidget {
+  final Product product;
+
+  // Конструктор для передачи данных о продукте
+  ProductDetailPage({required this.product});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,8 +36,9 @@ class ProductDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Динамическое отображение названия продукта
             Text(
-              'Blue Salad',
+              product.name, // Используем имя из переданного объекта
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
@@ -47,7 +54,7 @@ class ProductDetailPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _buildInfoIcon(Icons.timer, '32 MINS'),
+                      _buildInfoIcon(Icons.timer, '32 MINS'), // Текст можно заменить на динамический, если нужно
                       SizedBox(height: 20),
                       _buildInfoIcon(Icons.people, '2 PEOPLE'),
                       SizedBox(height: 20),
@@ -56,19 +63,27 @@ class ProductDetailPage extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                // Изображение вертикально справа
+                // Изображение продукта (если есть URL)
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: Image.network(
-                    'https://suebeehomemaker.com/wp-content/uploads/2022/06/classic-wedge-salad-4.jpg',
+                  child: product.imageUrl != null
+                      ? Image.network(
+                    product.imageUrl!, // Если у продукта есть изображение
                     height: 200,
                     width: 150,
-                    fit: BoxFit.cover, // Обеспечивает заполнение без растягивания
+                    fit: BoxFit.cover,
+                  )
+                      : Image.asset( // Если изображения нет, показываем изображение по умолчанию
+                    'assets/images/default_image.png',
+                    height: 200,
+                    width: 150,
+                    fit: BoxFit.fill,
                   ),
                 ),
               ],
             ),
-            Spacer(), // Добавляем Spacer, чтобы сдвинуть блок Directions к низу страницы
+            Spacer(),
+            // Блок Directions с динамическими данными
             Container(
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
@@ -96,80 +111,43 @@ class ProductDetailPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10),
-                  _buildStep(
-                    'Melt 2 tablespoons butter in a large skillet over medium high heat. Add shrimp, salt and pepper, to taste. Cook, stirring occasionally, until pink, about 2-3 minutes; set aside.',
-                  ),
-                  SizedBox(height: 10),
-                  _buildStep(
-                    'Add garlic to the skillet, and cook, stirring frequently, until fragrant, about 1 minute. Stir in chicken stock and lemon juice. Bring to a boil; reduce heat and simmer...',
-                  ),
+                  // Динамическое отображение шагов из списка directions
+                  for (var step in product.directions)
+                    _buildStep(step), // Отображаем каждый шаг приготовления
                 ],
               ),
             ),
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark_border),
-            label: 'Saved',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.menu),
-            label: 'More',
-          ),
-        ],
-        currentIndex: 0,
-        selectedItemColor: Colors.redAccent,
-        unselectedItemColor: Colors.grey,
-        showUnselectedLabels: true,
-      ),
     );
   }
 
-  Widget _buildInfoIcon(IconData icon, String text) {
+  // Виджет для отображения информации (время, количество людей, калории и т.д.)
+  Widget _buildInfoIcon(IconData icon, String label) {
     return Row(
       children: [
-        Icon(icon, color: Colors.redAccent),
-        SizedBox(width: 5),
+        Icon(icon, color: Colors.black54),
+        SizedBox(width: 8),
         Text(
-          text,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          label,
+          style: TextStyle(fontSize: 14, color: Colors.black54),
         ),
       ],
     );
   }
 
-  Widget _buildStep(String text) {
+  // Виджет для отображения шага приготовления
+  Widget _buildStep(String step) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 6.0),
-          child: Icon(
-            Icons.circle,
-            size: 8,
-            color: Colors.redAccent,
-          ),
-        ),
-        SizedBox(width: 10),
+        Icon(Icons.check_circle, color: Colors.green),
+        SizedBox(width: 8),
         Expanded(
           child: Text(
-            text,
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.black87,
-              height: 1.5,
-            ),
+            step,
+            style: TextStyle(fontSize: 16),
+            overflow: TextOverflow.ellipsis,
           ),
         ),
       ],

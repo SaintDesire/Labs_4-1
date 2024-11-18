@@ -1,0 +1,13 @@
+﻿  pch.cpp
+  NTP.cpp
+C:\Users\nikit\labs_4-1\РИС\Lab1\NTP\NTP\NTP.cpp(51,17): warning C4307: "*": переполнение целой константы со знаком
+  (компиляция исходного файла "/NTP.cpp")
+  
+C:\Users\nikit\labs_4-1\РИС\Lab1\NTP\NTP\NTP.cpp(72,21): warning C4309: =: усечение константного значения
+  (компиляция исходного файла "/NTP.cpp")
+  
+  Создание кода
+  Previous IPDB not found, fall back to full compilation.
+  All 123 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  NTP.vcxproj -> C:\Users\nikit\labs_4-1\РИС\Lab1\NTP\x64\Release\NTP.exe

@@ -1,0 +1,13 @@
+﻿  pch.cpp
+  NTP_Client.cpp
+C:\Users\nikit\labs_4-1\РИС\Lab1\NTP\NTP_Client\NTP_Client.cpp(87,24): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+  (компиляция исходного файла "/NTP_Client.cpp")
+  
+C:\Users\nikit\labs_4-1\РИС\Lab1\NTP\NTP_Client\NTP_Client.cpp(88,24): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+  (компиляция исходного файла "/NTP_Client.cpp")
+  
+  Создание кода
+  Previous IPDB not found, fall back to full compilation.
+  All 151 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  NTP_Client.vcxproj -> C:\Users\nikit\labs_4-1\РИС\Lab1\NTP\x64\Release\NTP_Client.exe
