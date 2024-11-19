@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import '../models/favourite.dart';
 import '../models/product.dart';
-import '../models/user.dart';
 import 'manage_product_screen.dart';
-import 'product_detail_page.dart'; // Импорт страницы с деталями продукта
-import 'user_list_screen.dart'; // Импорт экрана списка пользователей
-import 'login_screen.dart'; // Импорт экрана логина
+import 'product_detail_page.dart';
+import 'user_list_screen.dart';
+import 'login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  final String userRole; // Роль пользователя, переданная в конструктор
+  final String userRole;
 
-  // Конструктор для приема роли пользователя
   HomeScreen({required this.userRole});
 
   @override
