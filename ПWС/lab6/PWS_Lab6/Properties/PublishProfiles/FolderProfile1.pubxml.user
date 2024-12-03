@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\inetpub\wwwroot\lab6</_PublishTargetUrl>
+    <History>True|2024-11-24T10:37:44.9179714Z||;True|2024-11-24T13:23:08.7477993+03:00||;True|2024-11-24T13:04:53.5357400+03:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/de/Microsoft.Data.Edm.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.OData.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.Services.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/de/System.Spatial.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.Edm.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.OData.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.Services.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/es/System.Spatial.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.Edm.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.OData.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.Services.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/fr/System.Spatial.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.OData.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.Services.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/it/System.Spatial.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.Edm.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.OData.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.Services.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/ja/System.Spatial.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.Edm.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.OData.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.Services.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/ko/System.Spatial.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.Edm.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.OData.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.Services.Client.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.Services.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.OData.Core.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.OData.Edm.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.OData.EntityFrameworkProvider.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Spatial.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/PWS_Lab6.dll">
+      <publishTime>11/24/2024 13:59:17</publishTime>
+    </File>
+    <File Include="bin/PWS_Lab6.pdb">
+      <publishTime>11/24/2024 13:59:17</publishTime>
+    </File>
+    <File Include="bin/ru/EntityFramework.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/ru/EntityFramework.SqlServer.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.Edm.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.OData.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.Services.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/ru/System.Spatial.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/System.Buffers.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/System.Memory.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/System.Numerics.Vectors.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/System.Runtime.CompilerServices.Unsafe.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/System.Spatial.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/System.Text.Encodings.Web.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/System.Text.Json.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/System.Threading.Tasks.Extensions.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/System.ValueTuple.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.Edm.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.OData.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.Services.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Spatial.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.Edm.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.OData.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.Services.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/System.Spatial.resources.dll">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="DB.sql">
+      <publishTime>11/24/2024 13:07:12</publishTime>
+    </File>
+    <File Include="Model1.edmx.diagram">
+      <publishTime>11/24/2024 13:53:59</publishTime>
+    </File>
+    <File Include="Service1.svc">
+      <publishTime>11/22/2024 13:46:00</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>11/24/2024 13:59:18</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
