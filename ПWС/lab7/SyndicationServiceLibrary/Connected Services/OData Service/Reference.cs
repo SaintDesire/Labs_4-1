@@ -10,19 +10,19 @@
 
 // Original file name:
 // Generation date: 21.11.2024 10:05:09
-namespace WSTDSModel
+namespace WSKNIModel
 {
     
     /// <summary>
-    /// There are no comments for WSTDSEntities in the schema.
+    /// There are no comments for WSKNIEntities in the schema.
     /// </summary>
-    public partial class WSTDSEntities : global::System.Data.Services.Client.DataServiceContext
+    public partial class WSKNIEntities : global::System.Data.Services.Client.DataServiceContext
     {
         /// <summary>
-        /// Initialize a new WSTDSEntities object.
+        /// Initialize a new WSKNIEntities object.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public WSTDSEntities(global::System.Uri serviceRoot) : 
+        public WSKNIEntities(global::System.Uri serviceRoot) : 
                 base(serviceRoot, global::System.Data.Services.Common.DataServiceProtocolVersion.V3)
         {
             this.OnContextCreated();
@@ -88,29 +88,29 @@ namespace WSTDSModel
             private const string ModelPart0 = "<edmx:Edmx Version=\"1.0\" xmlns:edmx=\"http://schemas.microsoft.com/ado/2007/06/edm" +
                 "x\"><edmx:DataServices m:DataServiceVersion=\"1.0\" m:MaxDataServiceVersion=\"3.0\" x" +
                 "mlns:m=\"http://schemas.microsoft.com/ado/2007/08/dataservices/metadata\"><Schema " +
-                "Namespace=\"WSTDSModel\" xmlns=\"http://schemas.microsoft.com/ado/2009/11/edm\"><Ent" +
+                "Namespace=\"WSKNIModel\" xmlns=\"http://schemas.microsoft.com/ado/2009/11/edm\"><Ent" +
                 "ityType Name=\"note\"><Key><PropertyRef Name=\"id\" /></Key><Property Name=\"id\" Type" +
                 "=\"Edm.Int32\" Nullable=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http" +
                 "://schemas.microsoft.com/ado/2009/02/edm/annotation\" /><Property Name=\"stud_id\" " +
                 "Type=\"Edm.Int32\" /><Property Name=\"subject\" Type=\"Edm.String\" MaxLength=\"20\" Fix" +
                 "edLength=\"false\" Unicode=\"true\" /><Property Name=\"note1\" Type=\"Edm.Int32\" /><Nav" +
-                "igationProperty Name=\"student\" Relationship=\"WSTDSModel.FK__note__stud_id__398D8" +
+                "igationProperty Name=\"student\" Relationship=\"WSKNIModel.FK__note__stud_id__398D8" +
                 "EEE\" ToRole=\"student\" FromRole=\"note\" /></EntityType><EntityType Name=\"student\">" +
                 "<Key><PropertyRef Name=\"id\" /></Key><Property Name=\"id\" Type=\"Edm.Int32\" Nullabl" +
                 "e=\"false\" p6:StoreGeneratedPattern=\"Identity\" xmlns:p6=\"http://schemas.microsoft" +
                 ".com/ado/2009/02/edm/annotation\" /><Property Name=\"name\" Type=\"Edm.String\" MaxLe" +
                 "ngth=\"50\" FixedLength=\"false\" Unicode=\"true\" /><NavigationProperty Name=\"note\" R" +
-                "elationship=\"WSTDSModel.FK__note__stud_id__398D8EEE\" ToRole=\"note\" FromRole=\"stu" +
+                "elationship=\"WSKNIModel.FK__note__stud_id__398D8EEE\" ToRole=\"note\" FromRole=\"stu" +
                 "dent\" /></EntityType><Association Name=\"FK__note__stud_id__398D8EEE\"><End Type=\"" +
-                "WSTDSModel.student\" Role=\"student\" Multiplicity=\"0..1\" /><End Type=\"WSTDSModel.n" +
+                "WSKNIModel.student\" Role=\"student\" Multiplicity=\"0..1\" /><End Type=\"WSKNIModel.n" +
                 "ote\" Role=\"note\" Multiplicity=\"*\" /><ReferentialConstraint><Principal Role=\"stud" +
                 "ent\"><PropertyRef Name=\"id\" /></Principal><Dependent Role=\"note\"><PropertyRef Na" +
                 "me=\"stud_id\" /></Dependent></ReferentialConstraint></Association></Schema><Schem" +
                 "a Namespace=\"PWS_Lab6\" xmlns=\"http://schemas.microsoft.com/ado/2009/11/edm\"><Ent" +
-                "ityContainer Name=\"WSTDSEntities\" m:IsDefaultEntityContainer=\"true\"><EntitySet N" +
-                "ame=\"note\" EntityType=\"WSTDSModel.note\" /><EntitySet Name=\"student\" EntityType=\"" +
-                "WSTDSModel.student\" /><AssociationSet Name=\"FK__note__stud_id__398D8EEE\" Associa" +
-                "tion=\"WSTDSModel.FK__note__stud_id__398D8EEE\"><End Role=\"note\" EntitySet=\"note\" " +
+                "ityContainer Name=\"WSKNIEntities\" m:IsDefaultEntityContainer=\"true\"><EntitySet N" +
+                "ame=\"note\" EntityType=\"WSKNIModel.note\" /><EntitySet Name=\"student\" EntityType=\"" +
+                "WSKNIModel.student\" /><AssociationSet Name=\"FK__note__stud_id__398D8EEE\" Associa" +
+                "tion=\"WSKNIModel.FK__note__stud_id__398D8EEE\"><End Role=\"note\" EntitySet=\"note\" " +
                 "/><End Role=\"student\" EntitySet=\"student\" /></AssociationSet></EntityContainer><" +
                 "/Schema></edmx:DataServices></edmx:Edmx>";
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -145,7 +145,7 @@ namespace WSTDSModel
         }
     }
     /// <summary>
-    /// There are no comments for WSTDSModel.note in the schema.
+    /// There are no comments for WSKNIModel.note in the schema.
     /// </summary>
     /// <KeyProperties>
     /// id
@@ -283,7 +283,7 @@ namespace WSTDSModel
         }
     }
     /// <summary>
-    /// There are no comments for WSTDSModel.student in the schema.
+    /// There are no comments for WSKNIModel.student in the schema.
     /// </summary>
     /// <KeyProperties>
     /// id
